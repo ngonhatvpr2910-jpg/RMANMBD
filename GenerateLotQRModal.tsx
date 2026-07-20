@@ -49,27 +49,62 @@ export default function GenerateLotQRModal({ onClose }: Props) {
               .subtitle { font-size: 12px; color: #555; margin-bottom: 10px; }
               .id { font-weight: bold; margin-top: 10px; font-size: 16px; }
               @media print {
-                @page { size: 70mm 22mm; margin: 0; }
-                body { padding: 0; margin: 0; width: 70mm; }
+                @page { size: 82mm 20mm; margin: 0; }
+                body { padding: 0; margin: 0; width: 82mm; }
                 .grid { 
                   display: flex; 
                   flex-wrap: wrap;
-                  width: 70mm;
+                  width: 82mm;
                   gap: 0;
                 }
                 .card { 
-                  width: 35mm; 
-                  height: 22mm; 
+                  width: 40mm; 
+                  height: 20mm; 
                   border: none; 
-                  padding: 1mm; 
+                  padding: 1mm 2mm; 
                   margin: 0; 
                   page-break-inside: avoid;
                   box-sizing: border-box;
+                  display: flex;
+                  flex-direction: row;
+                  align-items: center;
+                  justify-content: flex-start;
+                  text-align: left;
+                  overflow: hidden;
                 }
-                .title { font-size: 7pt; margin-bottom: 1px; max-width: 33mm; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-                .subtitle { font-size: 5pt; margin-bottom: 2px; }
-                .id { font-size: 6pt; margin-top: 2px; }
-                svg { width: 12mm !important; height: 12mm !important; }
+                .qr-wrapper {
+                  margin-right: 2mm;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                }
+                .text-wrapper {
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: center;
+                  min-width: 0;
+                }
+                .title { 
+                  font-size: 8pt; 
+                  margin-bottom: 0.5mm; 
+                  width: 22mm; 
+                  white-space: nowrap; 
+                  overflow: hidden; 
+                  text-overflow: ellipsis;
+                  line-height: 1;
+                }
+                .subtitle { 
+                  font-size: 6pt; 
+                  margin-bottom: 0.5mm; 
+                  line-height: 1;
+                }
+                .id { 
+                  font-size: 7pt; 
+                  margin-top: 0.5mm; 
+                  font-weight: bold;
+                  line-height: 1;
+                }
+                svg { width: 14mm !important; height: 14mm !important; }
               }
             </style>
           </head>
@@ -175,15 +210,19 @@ export default function GenerateLotQRModal({ onClose }: Props) {
            <div ref={printRef}>
              {isGenerated && Array.from({ length: formData.quantity }).map((_, idx) => (
                 <div key={idx} className="card">
-                  <div className="title">{formData.productCode}</div>
-                  <div className="subtitle">Lot: {formData.lotNumber}</div>
-                  <QRCodeSVG 
-                    value={`LOT|${formData.productCode}|${formData.lotNumber}|${String(idx + 1).padStart(4, '0')}`} 
-                    size={120}
-                    level="M"
-                    includeMargin={false}
-                  />
-                  <div className="id">SN-{String(idx + 1).padStart(4, '0')}</div>
+                  <div className="qr-wrapper">
+                    <QRCodeSVG 
+                      value={`LOT|${formData.productCode}|${formData.lotNumber}|${String(idx + 1).padStart(4, '0')}`} 
+                      size={140}
+                      level="M"
+                      includeMargin={false}
+                    />
+                  </div>
+                  <div className="text-wrapper">
+                    <div className="title">{formData.productCode}</div>
+                    <div className="subtitle">Lot: {formData.lotNumber}</div>
+                    <div className="id">SN-{String(idx + 1).padStart(4, '0')}</div>
+                  </div>
                 </div>
               ))}
            </div>
