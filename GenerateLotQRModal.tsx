@@ -45,8 +45,8 @@ export default function GenerateLotQRModal({ onClose }: Props) {
               body { font-family: sans-serif; margin: 0; padding: 20px; }
               .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; }
               .card { border: 1px dashed #ccc; padding: 15px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; page-break-inside: avoid; }
-              .title { font-weight: bold; margin-bottom: 5px; font-size: 14px; }
-              .subtitle { font-size: 12px; color: #555; margin-bottom: 10px; }
+              .title { font-weight: bold; margin-bottom: 5px; font-size: 16px; }
+              .subtitle { font-size: 16px; color: #000; font-weight: bold; margin-bottom: 10px; }
               .id { font-weight: bold; margin-top: 10px; font-size: 16px; }
               @media print {
                 @page { size: 72mm 22mm; margin: 0; }
@@ -96,17 +96,17 @@ export default function GenerateLotQRModal({ onClose }: Props) {
                   line-height: 1.1;
                 }
                 .subtitle { 
-                  font-size: 7pt; 
+                  font-size: 9pt; 
                   margin-bottom: 0.5mm; 
-                  line-height: 1;
+                  line-height: 1.1;
                   font-weight: bold;
                   color: #000;
                 }
                 .id { 
-                  font-size: 8pt; 
+                  font-size: 9pt; 
                   margin-top: 0.5mm; 
                   font-weight: bold;
-                  line-height: 1;
+                  line-height: 1.1;
                 }
                 svg { width: 14mm !important; height: 14mm !important; }
               }
