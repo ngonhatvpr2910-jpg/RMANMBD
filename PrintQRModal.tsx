@@ -33,19 +33,21 @@ export default function PrintQRModal({ tickets, onClose }: Props) {
               .subtitle { font-size: 12px; color: #555; margin-bottom: 10px; }
               .id { font-weight: bold; margin-top: 10px; font-size: 16px; }
               @media print {
-                @page { size: 35mm 22mm; margin: 0; }
-                body { padding: 0; margin: 0; width: 35mm; }
+                @page { size: 72mm 22mm; margin: 0; }
+                body { padding: 0; margin: 0; width: 72mm; }
                 .grid { 
-                  display: block;
-                  width: 35mm;
+                  display: flex; 
+                  flex-wrap: wrap;
+                  width: 72mm;
+                  gap: 0;
                 }
                 .card { 
                   width: 35mm; 
                   height: 22mm; 
                   border: none; 
-                  padding: 1.5mm 2mm; 
+                  padding: 1.5mm 1mm; 
                   margin: 0; 
-                  page-break-after: always;
+                  page-break-inside: avoid;
                   box-sizing: border-box;
                   display: flex;
                   flex-direction: row;
@@ -66,10 +68,10 @@ export default function PrintQRModal({ tickets, onClose }: Props) {
                   justify-content: center;
                   min-width: 0;
                   flex-grow: 1;
-                  padding-left: 2mm;
+                  padding-left: 1mm;
                 }
                 .title { 
-                  font-size: 8pt; 
+                  font-size: 7.5pt; 
                   margin-bottom: 0.5mm; 
                   font-weight: bold;
                   white-space: nowrap; 
@@ -78,18 +80,18 @@ export default function PrintQRModal({ tickets, onClose }: Props) {
                   line-height: 1.1;
                 }
                 .subtitle { 
-                  font-size: 6pt; 
+                  font-size: 5.5pt; 
                   margin-bottom: 0.5mm; 
                   line-height: 1;
                   color: #333;
                 }
                 .id { 
-                  font-size: 7pt; 
+                  font-size: 6.5pt; 
                   margin-top: 0.5mm; 
                   font-weight: bold;
                   line-height: 1;
                 }
-                svg { width: 15mm !important; height: 15mm !important; }
+                svg { width: 14mm !important; height: 14mm !important; }
               }
             </style>
           </head>
