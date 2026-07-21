@@ -87,7 +87,7 @@ export default function GenerateLotQRModal({ onClose }: Props) {
                   padding-left: 1mm;
                 }
                 .title { 
-                  font-size: 9pt; 
+                  font-size: 8.5pt; 
                   margin-bottom: 0.5mm; 
                   font-weight: bold;
                   white-space: nowrap; 
@@ -96,14 +96,14 @@ export default function GenerateLotQRModal({ onClose }: Props) {
                   line-height: 1.1;
                 }
                 .subtitle { 
-                  font-size: 9pt; 
+                  font-size: 8.5pt; 
                   margin-bottom: 0.5mm; 
                   line-height: 1.1;
                   font-weight: bold;
                   color: #000;
                 }
                 .id { 
-                  font-size: 9pt; 
+                  font-size: 8.5pt; 
                   margin-top: 0.5mm; 
                   font-weight: bold;
                   line-height: 1.1;
