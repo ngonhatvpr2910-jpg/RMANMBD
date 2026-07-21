@@ -71,7 +71,7 @@ export default function PrintQRModal({ tickets, onClose }: Props) {
                   padding-left: 1mm;
                 }
                 .title { 
-                  font-size: 7.5pt; 
+                  font-size: 9pt; 
                   margin-bottom: 0.5mm; 
                   font-weight: bold;
                   white-space: nowrap; 
@@ -80,13 +80,14 @@ export default function PrintQRModal({ tickets, onClose }: Props) {
                   line-height: 1.1;
                 }
                 .subtitle { 
-                  font-size: 5.5pt; 
+                  font-size: 7pt; 
                   margin-bottom: 0.5mm; 
                   line-height: 1;
-                  color: #333;
+                  font-weight: bold;
+                  color: #000;
                 }
                 .id { 
-                  font-size: 6.5pt; 
+                  font-size: 8pt; 
                   margin-top: 0.5mm; 
                   font-weight: bold;
                   line-height: 1;
