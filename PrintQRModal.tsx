@@ -33,54 +33,55 @@ export default function PrintQRModal({ tickets, onClose }: Props) {
               .subtitle { font-size: 12px; color: #555; margin-bottom: 10px; }
               .id { font-weight: bold; margin-top: 10px; font-size: 16px; }
               @media print {
-                @page { size: 82mm 20mm; margin: 0; }
-                body { padding: 0; margin: 0; width: 82mm; }
+                @page { size: 35mm 22mm; margin: 0; }
+                body { padding: 0; margin: 0; width: 35mm; }
                 .grid { 
-                  display: flex; 
-                  flex-wrap: wrap;
-                  width: 82mm;
-                  gap: 0;
+                  display: block;
+                  width: 35mm;
                 }
                 .card { 
-                  width: 40mm; 
-                  height: 20mm; 
+                  width: 35mm; 
+                  height: 22mm; 
                   border: none; 
-                  padding: 1mm 2mm; 
+                  padding: 1.5mm 2mm; 
                   margin: 0; 
-                  page-break-inside: avoid;
+                  page-break-after: always;
                   box-sizing: border-box;
                   display: flex;
                   flex-direction: row;
                   align-items: center;
-                  justify-content: flex-start;
+                  justify-content: space-between;
                   text-align: left;
                   overflow: hidden;
                 }
                 .qr-wrapper {
-                  margin-right: 2mm;
                   display: flex;
                   align-items: center;
                   justify-content: center;
+                  flex-shrink: 0;
                 }
                 .text-wrapper {
                   display: flex;
                   flex-direction: column;
                   justify-content: center;
                   min-width: 0;
+                  flex-grow: 1;
+                  padding-left: 2mm;
                 }
                 .title { 
                   font-size: 8pt; 
                   margin-bottom: 0.5mm; 
-                  width: 22mm; 
+                  font-weight: bold;
                   white-space: nowrap; 
                   overflow: hidden; 
                   text-overflow: ellipsis;
-                  line-height: 1;
+                  line-height: 1.1;
                 }
                 .subtitle { 
                   font-size: 6pt; 
                   margin-bottom: 0.5mm; 
                   line-height: 1;
+                  color: #333;
                 }
                 .id { 
                   font-size: 7pt; 
@@ -88,7 +89,7 @@ export default function PrintQRModal({ tickets, onClose }: Props) {
                   font-weight: bold;
                   line-height: 1;
                 }
-                svg { width: 14mm !important; height: 14mm !important; }
+                svg { width: 15mm !important; height: 15mm !important; }
               }
             </style>
           </head>
